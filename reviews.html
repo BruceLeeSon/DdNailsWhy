@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reviews - D&D Nails</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #f7e7b3;
+      font-family: sans-serif;
+      margin: 0; padding: 0;
+    }
+    header {
+      background-color: #111;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0; left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    header a.logo-link {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #FFD700;
+      position: relative;
+      user-select: none;
+      transition: filter 0.7s ease;
+      text-decoration: none;
+    }
+    header a.logo-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.7), transparent);
+      transform: skewX(-25deg);
+      transition: left 0.7s ease;
+      pointer-events: none;
+    }
+    header a.logo-link:hover::before {
+      left: 125%;
+      transition: left 0.7s ease;
+    }
+    nav a {
+      color: #FFD700;
+      font-weight: 700;
+      text-decoration: none;
+      user-select: none;
+    }
+    main {
+      max-width: 800px;
+      margin: 120px auto 2rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .review-card {
+      background: #222;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(40px);
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+    }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fadeUp1 {
+      animation-name: fadeUp;
+      animation-duration: 1s;
+      animation-delay: 0.3s;
+    }
+    .fadeUp2 {
+      animation-name: fadeUp;
+      animation-duration: 1s;
+      animation-delay: 0.6s;
+    }
+    .fadeUp3 {
+      animation-name: fadeUp;
+      animation-duration: 1s;
+      animation-delay: 0.9s;
+    }
+    .review-stars {
+      color: #FFD700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      user-select: none;
+    }
+    .reviewer-name {
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: #f7e7b3;
+    }
+    .review-text {
+      font-style: italic;
+      color: #d7cfae;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo-link">D&amp;D Nails</a>
+  <nav>
+    <a href="contacts.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1 style="color:#FFD700; font-size:2rem; margin-bottom:2rem;">Customer Reviews</h1>
+
+  <div class="review-card fadeUp1">
+    <div class="review-stars">★★★★★</div>
+    <div class="reviewer-name">Anna S.</div>
+    <div class="review-text">"Absolutely loved my manicure! The staff was so friendly and the design exceeded my expectations."</div>
+  </div>
+
+  <div class="review-card fadeUp2">
+    <div class="review-stars">★★★★☆</div>
+    <div class="reviewer-name">Mark T.</div>
+    <div class="review-text">"Great service and very clean environment. I recommend the deluxe pedicure."</div>
+  </div>
+
+  <div class="review-card fadeUp3">
+    <div class="review-stars">★★★★★</div>
+    <div class="reviewer-name">Lily P.</div>
+    <div class="review-text">"Best waxing experience ever! Gentle and professional."</div>
+  </div>
+</main>
+
+<script>
+  const lenis = new Lenis({
+    lerp: 0.15,
+    smoothWheel: true,
+    wheelMultiplier: 0.7,
+    smoothTouch: true,
+  });
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+</script>
+
+</body>
+</html>
